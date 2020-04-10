@@ -4,11 +4,14 @@ name: LolzClang
 steps: 
   - 
     commands:
-      - apt-get -y update && apt-get -y upgrade && apt-get -y install bc bison build-essential ca-certificates ccache clang cmake curl file flex gcc g++ git libelf-dev libssl-dev make ninja-build patchelf python3 texinfo u-boot-tools zlib1g-dev
+      - apt-get -y update && apt-get -y upgrade && apt-get -y install bc bison build-essential ca-certificates ccache clang cmake curl file flex gcc g++ git lld libelf-dev libssl-dev make ninja-build patchelf python3 texinfo u-boot-tools zlib1g-dev
       - git config --global user.name "Jprimero15"
       - git config --global user.email "jprimero155@gmail.com"
       - git config --global color.ui false
       - bash build_lolz.sh
+    environment: 
+      TOKEN: 
+        from_secret: token
     image: "ubuntu:18.04"
     name: clang_builder
     trigger: 
