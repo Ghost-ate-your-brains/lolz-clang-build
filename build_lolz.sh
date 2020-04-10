@@ -1,7 +1,7 @@
  #!/usr/bin/env bash
 
 # Set Chat ID, to push Notifications
-CHATID="1208711074"
+CHATID="-1001222358827"
 
 # github info
 git config --global user.name "Jprimero15"
