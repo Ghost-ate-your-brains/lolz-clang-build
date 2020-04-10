@@ -9,6 +9,7 @@ jobs:
            apt-get -y update && apt-get -y upgrade && apt-get -y install bc bison ca-certificates ccache clang cmake curl file flex gcc g++ git libelf-dev libssl-dev make ninja-build python3 texinfo u-boot-tools zlib1g-dev
            git config --global user.name "Joshua Primero"
            git config --global user.email "jprimero155@gmail.com"
+           wget https://gist.githubusercontent.com/Jprimero15/3614b189c51a547f41fe5a8857a556c8/raw/3704ef50c474035b14e4ba4b72252f458def8f1d/build_it.sh
            source build_it.sh
 workflows:
   version: 2.1
