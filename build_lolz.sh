@@ -1,7 +1,11 @@
  #!/usr/bin/env bash
 
 # Set Chat ID, to push Notifications
-CHATID="-1001222358827"
+CHATID="1208711074"
+
+# github info
+git config --global user.name "Jprimero15"
+git config --global user.email "jprimero155@gmail.com"
 
 # Inlined function to post a message
 token="1208711074:AAGaXHkX_suWsyP7E1Uq-yHrIoSGYMlKRqo"
@@ -68,10 +72,8 @@ tg_post_msg "<b>LOLZ Clang Compilation Finished</b>%0A<b>Clang Version : </b><co
 # Push to GitHub
 # Update Git repository
 tg_post_msg "<code>Preparing for Github Repository..</code>"
-git config --global user.name "Jprimero15"
-git config --global user.email "jprimero155@gmail.com"
-git clone https://github.com/Jprimero15/lolz_clang.git -b master lolz_repo
-pushd lolz_repo
+git clone git@github.com:Jprimero15/lolz_clang.git -b master lolz_repo
+cd lolz_repo
 rm -fr *
 cp -r ../install/* .
 # git checkout README.md # keep this as it's not part of the clang prebuilt itself
@@ -81,6 +83,7 @@ git commit -m "Update to $lolz_date Build
 LLVM commit: $llvm_commit_url
 binutils version: $binutils_ver
 Builder commit: https://github.com/Jprimero15/lolz-clang-build/commit/$builder_commit"
+
 git push -f
 popd
 tg_post_msg "<b>LOLZ Clang Compilation Finished and Pushed</b>" 
