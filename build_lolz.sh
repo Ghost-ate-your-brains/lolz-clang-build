@@ -11,7 +11,7 @@ function msg() {
 msg "Building LLVM..."
 ./build-llvm.py \
 	--clang-vendor "LOLZ" \
-	--targets "ARM;AArch64" \
+	--targets "ARM;AArch64;X86" \
 	--shallow-clone \
 	--lto full \
 	--pgo \
@@ -19,7 +19,7 @@ msg "Building LLVM..."
 
 # Build binutils
 msg "Building binutils..."
-./build-binutils.py --targets arm aarch64
+./build-binutils.py --targets arm aarch64 x86_64
 
 # Remove unused products
 msg "Removing unused products..."
