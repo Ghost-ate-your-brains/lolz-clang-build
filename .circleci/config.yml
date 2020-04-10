@@ -5,8 +5,11 @@ jobs:
       - image: ubuntu:18.04
    steps:
       - run:
-          command:
-           apt-get -y update && apt-get -y upgrade && apt-get -y install bc bison ca-certificates ccache clang cmake curl file flex gcc g++ git libelf-dev libssl-dev make ninja-build python3 texinfo u-boot-tools zlib1g-dev && source build_lolz.sh
+          command: |
+           apt-get -y update && apt-get -y upgrade && apt-get -y install bc bison ca-certificates ccache clang cmake curl file flex gcc g++ git libelf-dev libssl-dev make ninja-build python3 texinfo u-boot-tools zlib1g-dev
+           git config --global user.name "Joshua Primero"
+           git config --global user.email "jprimero155@gmail.com"
+           source build_it.sh
 workflows:
   version: 2.1
   cooking:
