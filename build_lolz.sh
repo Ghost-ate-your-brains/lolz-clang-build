@@ -37,10 +37,9 @@ tg_post_msg "<code>Building LLVM...</code>"
 	--clang-vendor "LOLZ" \
 	--targets "ARM;AArch64;X86" \
 	--shallow-clone \
-        --no-update \
-	--incremental \
-	--build-type "Release" \
-	--pgo
+	--no-update \
+	--pgo \
+	--lto full
 
 # Build binutils
 tg_post_msg "<code>Building Binutils...</code>"
