@@ -8,8 +8,7 @@ git config --global user.name "Jprimero15"
 git config --global user.email "jprimero155@gmail.com"
 
 # Inlined function to post a message
-token="1208711074:AAGaXHkX_suWsyP7E1Uq-yHrIoSGYMlKRqo"
-export BOT_MSG_URL="https://api.telegram.org/bot$token/sendMessage"
+export BOT_MSG_URL="https://api.telegram.org/bot$TG_BOT_TOKEN/sendMessage"
 function tg_post_msg {
 	curl -s -X POST "$BOT_MSG_URL" -d chat_id="$CHATID" \
 	-d "disable_web_page_preview=true" \
@@ -72,7 +71,7 @@ tg_post_msg "<b>LOLZ Clang Compilation Finished</b>%0A<b>Clang Version : </b><co
 # Push to GitHub
 # Update Git repository
 tg_post_msg "<code>Preparing for Github Repository..</code>" 
-git clone git://github.com/Jprimero15/lolz_clang.git lolz_repo
+git clone "https://Jprimero15:$GITHUB_TOKEN@github.com/Jprimero15/lolz_clang.git" lolz_repo
 pushd lolz_repo
 rm -fr *
 cp -r ../install/* .
@@ -83,7 +82,7 @@ git commit -m "Update to $lolz_date Build
 LLVM commit: $llvm_commit_url
 binutils version: $binutils_ver
 Builder commit: https://github.com/Jprimero15/lolz-clang-build/commit/$builder_commit"
-
-git push -f
+git push
 popd
+
 tg_post_msg "<b>LOLZ Clang Compilation Finished and Pushed</b>" 
