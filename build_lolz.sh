@@ -37,9 +37,9 @@ tg_post_msg "<code>Building LLVM...</code>"
 	--clang-vendor "LOLZ" \
 	--targets "ARM;AArch64;X86" \
 	--shallow-clone \
-	--no-update \
+	--incremental \
 	--pgo \
-	--lto full
+	--no-update
 
 # Build binutils
 tg_post_msg "<code>Building Binutils...</code>"
@@ -67,7 +67,7 @@ done
 
 # Release Info
 pushd llvm-project
-llvm_commit="$(git rev-parse HEAD)"
+llvm_commit="$(git rev-parse HEAD~1)"
 short_llvm_commit="$(cut -c-8 <<< "$llvm_commit")"
 popd
 llvm_commit_url="https://github.com/llvm/llvm-project/commit/$llvm_commit"
