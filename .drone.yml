@@ -9,7 +9,7 @@ steps:
     environment: 
       TOKEN: 
         from_secret: token
-    image: "ubuntu:18.04.4"
+    image: "ubuntu:19.10"
     name: clang_builder
     trigger: 
       branch: 
