@@ -24,12 +24,20 @@ builder_commit="$(git rev-parse HEAD)"
 # Send a notificaton to TG
 tg_post_msg "<b>LOLZ Clang Compilation Started</b>%0A<b>Date: </b><code>$lolz_friendly_date</code>%0A<b>CLANG Script Commit: </b><code>$builder_commit</code>%0A"
 
+# Clone LLVM and apply fixup patches *before* building
+tg_post_msg "<code>Applying Fixes Patch on LLVM...</code>"
+git clone --depth 1 "https://github.com/llvm/llvm-project"
+pushd llvm-project
+git am -3 ../patches/*
+popd
+
 # Build LLVM
 tg_post_msg "<code>Building LLVM...</code>"
 ./build-llvm.py \
 	--clang-vendor "LOLZ" \
 	--targets "ARM;AArch64;X86" \
 	--shallow-clone \
+        --no-update \
 	--incremental \
 	--build-type "Release" \
 	--pgo
