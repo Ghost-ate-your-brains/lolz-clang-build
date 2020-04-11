@@ -71,8 +71,8 @@ tg_post_msg "<b>LOLZ Clang Compilation Finished</b>%0A<b>Clang Version : </b><co
 
 # Push to GitHub
 # Update Git repository
-tg_post_msg "<code>Preparing for Github Repository..</code>"
-git clone https://github.com/Jprimero15/lolz_clang lolz_repo
+tg_post_msg "<code>Preparing for Github Repository..</code>" 
+git clone git@github.com:Jprimero15/lolz_clang.git -b master lolz_repo
 pushd lolz_repo
 rm -fr *
 cp -r ../install/* .
